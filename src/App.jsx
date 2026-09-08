@@ -1,7 +1,13 @@
+import WelcomeBanner from './components/common/WelcomeBanner';
+
 function App() {
   return (
     <>
-      <h2>Hello</h2>
+      <WelcomeBanner
+        title="Hello Kenneth"
+        subtitle="Hope you are enjoying"
+        text='explore products'
+      />
     </>
   );
 }
