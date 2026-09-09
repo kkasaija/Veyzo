@@ -1,0 +1,16 @@
+@use '../abstracts/' as *;
+
+.button {
+  padding: $spacing-sm $spacing-sm;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  color: $color-primary;
+  background-color: $color-white;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #c0cae19c;
+  }
+}
