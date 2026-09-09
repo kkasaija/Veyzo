@@ -1,8 +1,20 @@
+import { useState, useEffect } from 'react';
 import './home.scss';
-import products from '../../data/products';
 import ProductCard from '../../components/product';
+import { getProducts } from '../../services/products.service';
 
 const Home = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function loadProducts() {
+      const data = await getProducts();
+      setProducts(data.products);
+      console.log(data);
+    }
+    loadProducts();
+  }, []);
+
   return (
     <main className="home">
       <section className="hero">
