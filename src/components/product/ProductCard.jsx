@@ -1,7 +1,7 @@
 import './productCard.scss';
 
 const ProductCard = ({ product }) => {
-  const { thumbnail, title, category, price } = product;
+  const { thumbnail, title, category, price, description } = product;
 
   return (
     <article className="product-card">
