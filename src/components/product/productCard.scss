@@ -1,0 +1,37 @@
+@use '../../styles/abstracts/' as *;
+
+.product-card {
+  background: white;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  &__image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  &__content {
+    padding: $spacing-md;
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+  }
+
+  &__category {
+    color: gray;
+    margin-bottom: 1rem;
+  }
+
+  &__price {
+    font-weight: bold;
+    color: $color-primary;
+  }
+}
