@@ -1,29 +1,10 @@
-import { useState, useEffect } from 'react';
 import './home.scss';
 import ProductCard from '../../components/product';
 import Loader from '../../components/loader';
-import { getProducts } from '../../services/products.service';
+import { useProducts } from '../../hooks/useProducts';
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function loadProducts() {
-      try {
-        const data = await getProducts();
-        setProducts(data.products);
-        // console.log(data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadProducts();
-  }, []);
-
+  const { error, loading, products } = useProducts();
   if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
 
