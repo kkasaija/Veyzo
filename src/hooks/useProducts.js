@@ -23,4 +23,4 @@ function useProducts() {
   return { products, error, loading };
 }
 
-export { useProducts };
+export default useProducts;

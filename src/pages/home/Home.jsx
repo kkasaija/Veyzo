@@ -1,7 +1,7 @@
 import './home.scss';
 import ProductCard from '../../components/product';
 import Loader from '../../components/loader';
-import { useProducts } from '../../hooks/useProducts';
+import useProducts from '../../hooks/useProducts';
 
 const Home = () => {
   const { error, loading, products } = useProducts();
