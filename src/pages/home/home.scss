@@ -41,8 +41,9 @@
 
     &__grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: $spacing-xs;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: $spacing-sm;
+      background-color: $color-primary;
     }
   }
 }

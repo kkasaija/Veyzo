@@ -1,0 +1,21 @@
+.product-details {
+  padding: 2rem;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  &__image img {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+}

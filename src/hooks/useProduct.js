@@ -8,15 +8,19 @@ function useProduct(id) {
 
   useEffect(() => {
     async function loadProduct() {
+      setLoading(true);
+      setError(null);
       try {
         const data = await getProduct(id);
         setProduct(data);
       } catch (error) {
         setError(error.message);
+        setProduct(null);
       } finally {
         setLoading(false);
       }
     }
+
     loadProduct();
   }, [id]);
 
