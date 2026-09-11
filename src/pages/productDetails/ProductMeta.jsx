@@ -1,5 +1,4 @@
 function ProductMeta({ product }) {
-  console.log(product);
   return (
     <>
       <p>

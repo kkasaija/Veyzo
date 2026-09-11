@@ -1,6 +1,9 @@
+import useCart from '../../../hooks/useCart';
 import './navbar.scss';
 
 function Navbar() {
+  const { totalItems, cart, totalPrice } = useCart();
+
   return (
     <nav className="navbar">
       <div className="navbar__logo">ReactCommerce</div>
@@ -20,7 +23,7 @@ function Navbar() {
       </ul>
 
       <div className="navbar__actions">
-        <button className="button button--secondary">cart (0)</button>
+        <button className="button button--secondary">cart ({totalItems})</button>
         <button className="button">login</button>
       </div>
     </nav>
