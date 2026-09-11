@@ -10,6 +10,10 @@ function useProducts() {
     async function loadProducts() {
       try {
         const data = await getProducts();
+        if (!Array.isArray(data?.products)) {
+          throw new Error('Invalid products response');
+        }
+
         setProducts(data.products);
       } catch (error) {
         setError(error.message);
@@ -23,4 +27,4 @@ function useProducts() {
   return { products, error, loading };
 }
 
-export { useProducts };
+export default useProducts;

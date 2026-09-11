@@ -1,7 +1,8 @@
 import './home.scss';
 import ProductCard from '../../components/product';
 import Loader from '../../components/loader';
-import { useProducts } from '../../hooks/useProducts';
+import useProducts from '../../hooks/useProducts';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const { error, loading, products } = useProducts();
@@ -27,10 +28,13 @@ const Home = () => {
 
         <div className="featured-products__grid">
           {products.map((product) => (
-            <ProductCard
+            <Link
               key={product.id}
-              product={product}
-            />
+              to={`/products/${product.id}`}
+              className="featured-products__card link"
+            >
+              <ProductCard product={product} />
+            </Link>
           ))}
         </div>
       </section>

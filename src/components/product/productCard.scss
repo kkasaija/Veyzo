@@ -5,15 +5,21 @@
   border-radius: $border-radius;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
 
   &__image {
     width: 100%;
-    aspect-ratio: 1/0.5;
+    height: 200px;
     object-fit: contain;
   }
 

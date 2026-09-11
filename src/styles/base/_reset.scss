@@ -6,9 +6,8 @@
   box-sizing: border-box;
 }
 
-img {
-  display: block;
-  max-width: 100%;
+body {
+  line-height: 1.5;
 }
 
 ul,
@@ -17,5 +16,11 @@ ol {
 }
 
 a {
+  color: inherit;
   text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }

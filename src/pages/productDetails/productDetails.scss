@@ -1,0 +1,41 @@
+.product-details {
+  padding: 2rem;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  &__image img {
+    width: 50%;
+    border-radius: 12px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+
+    p {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+
+      span {
+        font-weight: 600;
+      }
+    }
+
+    span {
+      background-color: #16a34a;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+}
