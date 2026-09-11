@@ -1,4 +1,5 @@
 import getDiscountedPrice from '../../utils/getDiscountedPrice';
+import getFormattedCurrency from '../../utils/getFormattedCurrency';
 
 function ProductPrice({ product }) {
   const { price, discountPercentage } = product;
@@ -6,9 +7,10 @@ function ProductPrice({ product }) {
 
   return (
     <div className="price">
-      <h2>
-        $ {discountedPrice} <s>$ {price}</s>
-      </h2>
+      <p>
+        <s> {getFormattedCurrency(price)}</s>
+        {getFormattedCurrency(discountedPrice)}
+      </p>
       <span>{discountPercentage}% OFF</span>
     </div>
   );
