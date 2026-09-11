@@ -8,24 +8,49 @@ function CartProvider({ children }) {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.product.id === product.id);
 
-      if (!existingItem) {
-        return [...prevCart, { product, quantity: 1 }];
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.product.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
       }
 
-      return prevCart.map((item) =>
-        item.product.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-      );
+      return [...prevCart, { product, quantity: 1 }];
     });
   }
 
+  function removeFromCart(productId) {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.product.id === productId);
+      if (!existingItem) return prevCart;
+      if (existingItem.quantity > 1) {
+        return prevCart.map((item) =>
+          item.product.id === productId ? { ...item, quantity: item.quantity - 1 } : item
+        );
+      }
+
+      return prevCart.filter((item) => item.product.id !== productId);
+    });
+  }
+
+  function removeItem(productId) {
+    setCart((prevCart) => prevCart.filter((item) => item.product.id !== productId));
+  }
+
+  function clearCart() {
+    setCart([]);
+  }
+
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-  const totalPrice = cart.reduce((total, item) => total + item.quantity * item.product.price);
+  const totalPrice = cart.reduce((total, item) => total + item.quantity * item.product.price, 0);
 
   const value = {
     cart,
     totalItems,
     totalPrice,
+    removeFromCart,
+    removeItem,
     addToCart,
+    clearCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
