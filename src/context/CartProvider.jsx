@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import CartContext from './CartContext.js';
+import {
+  STORAGE_KEYS,
+  getStorageItem,
+  setStorageItem,
+  removeStoredItem,
+} from '../utils/storage.js';
 
 function CartProvider({ children }) {
-  const [cart, setCart] = useState(() => {
-    const cart = localStorage.getItem('cart');
-    return cart ? JSON.parse(cart) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+  const [cart, setCart] = useState(() => getStorageItem(STORAGE_KEYS.cart, []));
+  useEffect(() => setStorageItem(STORAGE_KEYS.cart, cart));
 
   function addToCart(product) {
     setCart((prevCart) => {
@@ -44,7 +44,7 @@ function CartProvider({ children }) {
   }
 
   function clearCart() {
-    setCart([]);
+    removeItem();
   }
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
