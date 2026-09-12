@@ -1,32 +1,84 @@
 @use '../../../styles/abstracts/' as *;
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: $spacing-sm $spacing-md;
-  background-color: $color-primary;
-  color: $color-white;
+  background-color: $color-white;
+  border-bottom: 1px solid rgba($color-black, 0.08);
 
-  /*&  represents the current selector*/
   &__logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    color: $color-primary;
+    font-size: $font-size-lg;
+    font-weight: 700;
+    text-decoration: none;
   }
 
   &__links {
     display: flex;
-    gap: $spacing-lg;
+    align-items: center;
+    gap: $spacing-xl;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-    a {
-      color: inherit;
-      &:hover {
-        text-decoration: underline;
-      }
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: $color-secondary;
+    font-size: $font-size-md;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &--active {
+      color: $color-primary;
+    }
+
+    &--active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background-color: $color-primary;
+      border-radius: 999px;
     }
   }
 
   &__actions {
     display: flex;
+    align-items: center;
     gap: $spacing-md;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    &__links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: $spacing-md;
+    }
+
+    &__actions {
+      width: 100%;
+      justify-content: center;
+    }
   }
 }

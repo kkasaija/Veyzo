@@ -1,0 +1,68 @@
+@use '../../styles/abstracts/' as *;
+
+.cart-summary {
+  background: $color-white;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: $spacing-xl;
+  position: sticky;
+  top: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  height: fit-content;
+
+  h2 {
+    color: $color-secondary;
+    font-size: $font-size-lg;
+  }
+
+  &__row,
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__row {
+    color: $color-secondary;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &__total {
+    font-size: $font-size-lg;
+    font-weight: bold;
+    color: $color-secondary;
+  }
+
+  &__checkout {
+    padding: $spacing-md;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    background: $color-primary;
+    color: $color-white;
+    font-size: $font-size-md;
+    font-weight: bold;
+    transition: 0.3s;
+
+    &:hover {
+      background: $color-secondary;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-summary {
+    position: static;
+  }
+}

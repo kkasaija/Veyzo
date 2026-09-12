@@ -1,27 +1,58 @@
+import { Link, NavLink } from 'react-router-dom';
+import useCart from '../../../hooks/useCart';
 import './navbar.scss';
 
 function Navbar() {
+  const { totalItems } = useCart();
+
+  const navLinks = [
+    { id: 1, label: 'Home', path: '/' },
+    { id: 2, label: 'Products', path: '/products' },
+    { id: 3, label: 'Categories', path: '/categories' },
+    { id: 4, label: 'About', path: '/about' },
+  ];
+
   return (
     <nav className="navbar">
-      <div className="navbar__logo">ReactCommerce</div>
+      <Link
+        to="/"
+        className="navbar__logo"
+      >
+        ReactCommerce
+      </Link>
+
       <ul className="navbar__links">
-        <li>
-          <a href="/">home</a>
-        </li>
-        <li>
-          <a href="/products">products</a>
-        </li>
-        <li>
-          <a href="/categories">categories</a>
-        </li>
-        <li>
-          <a href="/about">about</a>
-        </li>
+        {navLinks.map((link) => (
+          <li
+            key={link.id}
+            className="navbar__item"
+          >
+            <NavLink
+              to={link.path}
+              className={({ isActive }) =>
+                isActive ? 'navbar__link navbar__link--active' : 'navbar__link'
+              }
+            >
+              {link.label}
+            </NavLink>
+          </li>
+        ))}
       </ul>
 
       <div className="navbar__actions">
-        <button className="button button--secondary">cart (0)</button>
-        <button className="button">login</button>
+        <Link
+          to="/cart"
+          className="button button--secondary"
+        >
+          Cart ({totalItems})
+        </Link>
+
+        <Link
+          to="/login"
+          className="button"
+        >
+          Login
+        </Link>
       </div>
     </nav>
   );
