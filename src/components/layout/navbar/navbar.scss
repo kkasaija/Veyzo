@@ -4,11 +4,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   max-width: 1200px;
   margin: 0 auto;
-  padding: $spacing-lg $spacing-md;
-
+  padding: $spacing-sm $spacing-md;
   background-color: $color-white;
   border-bottom: 1px solid rgba($color-black, 0.08);
 
@@ -23,7 +21,6 @@
     display: flex;
     align-items: center;
     gap: $spacing-xl;
-
     list-style: none;
     margin: 0;
     padding: 0;
@@ -35,12 +32,10 @@
 
   &__link {
     position: relative;
-
     text-decoration: none;
     color: $color-secondary;
     font-size: $font-size-md;
     font-weight: 500;
-
     transition: color 0.3s ease;
 
     &:hover {
@@ -53,14 +48,11 @@
 
     &--active::after {
       content: '';
-
       position: absolute;
       left: 0;
       bottom: -6px;
-
       width: 100%;
       height: 2px;
-
       background-color: $color-primary;
       border-radius: 999px;
     }

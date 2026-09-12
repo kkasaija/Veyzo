@@ -2,8 +2,8 @@
 
 .product-details {
   max-width: 1200px;
-  margin: $spacing-2xl auto;
-  padding: 0 $spacing-md;
+  margin: $spacing-lg auto;
+  padding: 0 $spacing-sm;
 
   &__back {
     display: inline-block;
@@ -35,8 +35,8 @@
     img {
       display: block;
       width: 100%;
-      height: 500px;
-      object-fit: cover;
+      height: 350px;
+      object-fit: contain;
     }
   }
 
@@ -44,7 +44,6 @@
   &__info {
     display: flex;
     flex-direction: column;
-    gap: $spacing-lg;
 
     h1 {
       font-size: $font-size-xl;
@@ -120,6 +119,18 @@
       font-size: $font-size-sm;
       font-weight: 600;
     }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-weight: 400;
+  }
+
+  &__star {
+    color: $color-accent;
+    font-size: $font-size-lg;
   }
 }
 

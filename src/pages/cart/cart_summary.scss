@@ -4,16 +4,12 @@
   background: $color-white;
   border-radius: $border-radius;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
   padding: $spacing-xl;
-
   position: sticky;
   top: $spacing-xl;
-
   display: flex;
   flex-direction: column;
   gap: $spacing-lg;
-
   height: fit-content;
 
   h2 {
@@ -45,18 +41,13 @@
 
   &__checkout {
     padding: $spacing-md;
-
     border: none;
     border-radius: $border-radius;
-
     cursor: pointer;
-
     background: $color-primary;
     color: $color-white;
-
     font-size: $font-size-md;
     font-weight: bold;
-
     transition: 0.3s;
 
     &:hover {

@@ -1,11 +1,10 @@
 @use '../../styles/abstracts/' as *;
-
 @use './cart_item';
 @use './cart_summary';
 
 .cart {
   max-width: 1200px;
-  margin: $spacing-xl auto;
+  margin: $spacing-lg auto;
   padding: 0 $spacing-md;
 
   h1 {
