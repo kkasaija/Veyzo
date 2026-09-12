@@ -4,7 +4,7 @@ import Loader from '../../components/loader';
 import ProductImage from './ProductImage';
 import ProductInfo from './ProductInfo';
 
-import './productDetails.scss';
+import './product_details.scss';
 
 const Product = () => {
   const { id } = useParams();
@@ -16,7 +16,12 @@ const Product = () => {
 
   return (
     <main className="product-details">
-      <Link to="/">← Back to Products</Link>
+      <Link
+        to="/"
+        className="product-details__back"
+      >
+        ← Back to Products
+      </Link>
 
       <div className="product-details__content">
         <ProductImage product={product} />
