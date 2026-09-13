@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Search from '../../components/search/Search';
 import { useState } from 'react';
 import Hero from '../../components/hero';
+import useProductFilters from '../../hooks/useProductFilters';
 import './home.scss';
 
 const Home = () => {
@@ -16,14 +17,7 @@ const Home = () => {
   }
 
   //search
-  const query = search.trim().toLowerCase();
-  const filteredProducts = products.filter((product) => {
-    return (
-      product.title?.toLowerCase().includes(query) ||
-      product.brand?.toLowerCase().includes(query) ||
-      product.category?.toLowerCase().includes(query)
-    );
-  });
+  const filteredProducts = useProductFilters(products, search);
 
   if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
