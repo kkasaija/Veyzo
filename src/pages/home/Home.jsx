@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useCategories from '../../hooks/useCategories';
 
 import useProductFilters from '../../hooks/useProductFilters';
 import useProducts from '../../hooks/useProducts';
@@ -9,13 +10,17 @@ import Loader from '../../components/loader';
 
 import FilterBar from '../../components/filterBar';
 import Hero from '../../components/hero';
+import CategoryFilter from '../../components/categoryFilter';
 
 import './home.scss';
 
 const Home = () => {
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('');
+  const [category, setCategory] = useState('');
+
   const { error, loading, products } = useProducts();
+  const categories = useCategories(products);
 
   function handleSearch(e) {
     setSearch(e.target.value);
@@ -26,7 +31,7 @@ const Home = () => {
   }
 
   //search
-  const filteredProducts = useProductFilters(products, { search, sort });
+  const filteredProducts = useProductFilters(products, { search, sort, category });
 
   if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
@@ -42,7 +47,13 @@ const Home = () => {
             sort={sort}
             onSearchChange={handleSearch}
             onSortChange={handleSort}
-          />
+          >
+            <CategoryFilter
+              categories={categories}
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            />
+          </FilterBar>
         </div>
 
         {filteredProducts.length === 0 ? (

@@ -1,24 +1,22 @@
 @use '../../styles/abstracts/' as *;
 
 .search {
-  margin-bottom: $spacing-xl;
-
   &__input {
     width: 100%;
     padding: $spacing-md;
-    border: 1px solid rgba($color-black, .12);
+    border: 1px solid rgba($color-black, 0.12);
     border-radius: $border-radius;
     font-size: $font-size-md;
     outline: none;
-    transition: .3s ease;
+    transition: 0.3s ease;
 
     &:focus {
       border-color: $color-primary;
-      box-shadow: 0 0 0 3px rgba($color-primary, .15);
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
     }
 
     &::placeholder {
-      color: rgba($color-secondary, .5);
+      color: rgba($color-secondary, 0.5);
     }
   }
 }
