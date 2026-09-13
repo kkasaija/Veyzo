@@ -15,23 +15,20 @@ import CategoryFilter from '../../components/categoryFilter';
 import './home.scss';
 
 const Home = () => {
-  const [search, setSearch] = useState('');
-  const [sort, setSort] = useState('');
-  const [category, setCategory] = useState('');
+  const [filters, setFilters] = useState({ search: '', sort: '', category: '' });
+
+  function handleFilterChange(e) {
+    setFilters((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  }
 
   const { error, loading, products } = useProducts();
   const categories = useCategories(products);
 
-  function handleSearch(e) {
-    setSearch(e.target.value);
-  }
-
-  function handleSort(e) {
-    setSort(e.target.value);
-  }
-
   //search
-  const filteredProducts = useProductFilters(products, { search, sort, category });
+  const filteredProducts = useProductFilters(products, filters);
 
   if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
@@ -43,15 +40,13 @@ const Home = () => {
         <h2>Featured Products</h2>
         <div className="featured-products__controls">
           <FilterBar
-            search={search}
-            sort={sort}
-            onSearchChange={handleSearch}
-            onSortChange={handleSort}
+            filters={filters}
+            onChange={handleFilterChange}
           >
             <CategoryFilter
               categories={categories}
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              value={filters.category}
+              onChange={handleFilterChange}
             />
           </FilterBar>
         </div>

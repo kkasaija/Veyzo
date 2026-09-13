@@ -2,19 +2,19 @@ import Search from '../search';
 import Sort from '../sort';
 import './filter_bar.scss';
 
-const FilterBar = ({ search, sort, onSearchChange, onSortChange, children }) => {
+const FilterBar = ({ filters, onChange, children }) => {
   return (
     <section className="filter-bar">
       <Search
-        value={search}
-        onChange={onSearchChange}
+        value={filters.search}
+        onChange={onChange}
       />
 
       {children}
 
       <Sort
-        value={sort}
-        onChange={onSortChange}
+        value={filters.sort}
+        onChange={onChange}
       />
     </section>
   );
