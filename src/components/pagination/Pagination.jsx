@@ -1,36 +1,31 @@
 import './pagination.scss';
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination = ({ currentPage, visiblePages, hasPreviousPage, hasNextPage, onPageChange }) => {
   return (
-    <nav>
+    <nav className="pagination">
       <button
         className="pagination__button"
-        disabled={currentPage === 1}
+        disabled={!hasPreviousPage}
         onClick={() => onPageChange(currentPage - 1)}
       >
-        back
+        prev
       </button>
-      {Array(totalPages)
-        .fill(null)
-        .map((_, index) => {
-          const page = index + 1;
-          return (
-            <button
-              key={page}
-              onClick={() => onPageChange(page)}
-              className={
-                currentPage === page
-                  ? 'pagination__button pagination__button--active'
-                  : 'pagination__button'
-              }
-            >
-              {page}
-            </button>
-          );
-        })}
+
+      {visiblePages.map((page) => (
+        <button
+          key={page}
+          className={`pagination__button ${
+            currentPage === page ? 'pagination__button--active' : ''
+          }`}
+          onClick={() => onPageChange(page)}
+        >
+          {page}
+        </button>
+      ))}
+
       <button
         className="pagination__button"
-        disabled={currentPage === totalPages}
+        disabled={!hasNextPage}
         onClick={() => onPageChange(currentPage + 1)}
       >
         next

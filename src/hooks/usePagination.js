@@ -1,57 +1,51 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 
 const usePagination = (items, itemsPerPage = 12) => {
   const [currentPage, setCurrentPage] = useState(1);
-  
+
+  const previousItems = useRef(items);
+
   useEffect(() => {
-    if (currentPage !== 1) {
+    if (previousItems.current !== items) {
       setCurrentPage(1);
+      previousItems.current = items;
     }
   }, [items, currentPage]);
 
-  const { totalPages, visibleItems } = useMemo(() => {
+  const { totalPages, paginatedItems, visiblePages, hasPreviousPage, hasNextPage } = useMemo(() => {
     const totalPages = Math.ceil(items.length / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    const visibleItems = items.slice(startIndex, endIndex);
+    const paginatedItems = items.slice(startIndex, endIndex);
 
-    return { totalPages, visibleItems };
+    const startPage = Math.max(currentPage - 2, 1);
+    const endPage = Math.min(currentPage + 2, totalPages);
+
+    const visiblePages = Array.from(
+      { length: Math.max(endPage - startPage + 1, 0) },
+      (_, index) => startPage + index
+    );
+
+    return {
+      totalPages,
+      paginatedItems,
+      visiblePages,
+      hasPreviousPage: currentPage > 1,
+      hasNextPage: currentPage < totalPages,
+    };
   }, [items, currentPage, itemsPerPage]);
 
   return {
     currentPage,
     totalPages,
-    visibleItems,
+    paginatedItems,
+    visiblePages,
+    hasPreviousPage,
+    hasNextPage,
     setCurrentPage,
   };
 };
 
 export default usePagination;
-
-// import { useEffect, useMemo, useState } from 'react';
-
-// const usePagination = (items, itemsPerPage = 12) => {
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const totalPages = Math.ceil(items.length / itemsPerPage);
-//   useEffect(() => {
-//     setCurrentPage((page) =>
-//       totalPages === 0 ? 1 : Math.min(page, totalPages)
-//     );
-//   }, [totalPages]);
-
-//   const paginatedItems = useMemo(() => {
-//     const startIndex = (currentPage - 1) * itemsPerPage;
-//     return items.slice(startIndex, startIndex + itemsPerPage);
-//   }, [items, currentPage, itemsPerPage]);
-
-//   return {
-//     currentPage,
-//     totalPages,
-//     paginatedItems,
-//     setCurrentPage,
-//   };
-// };
-
-// export default usePagination;

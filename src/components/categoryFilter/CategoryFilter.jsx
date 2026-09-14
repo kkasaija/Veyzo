@@ -8,7 +8,7 @@ const CategoryFilter = ({ categories, value, onChange }) => {
       <select
         id="category"
         value={value}
-        name='category'
+        name="category"
         onChange={onChange}
         className="category-filter__select"
       >
