@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useCategories from '../../hooks/useCategories';
 
@@ -31,7 +31,9 @@ const Home = () => {
     setCurrentPage,
   } = usePagination(filteredProducts);
 
-  console.log(currentPage);
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filters.search, filters.category, filters.sort]);
 
   function handleFilterChange(e) {
     setFilters((prevState) => ({
