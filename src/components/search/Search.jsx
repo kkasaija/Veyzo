@@ -3,11 +3,12 @@ const Search = ({ value, onChange }) => {
   return (
     <div className="search">
       <input
+        name="search"
         type="search"
-        className="search__input"
-        placeholder="Search products...."
         value={value}
         onChange={onChange}
+        className="search__input"
+        placeholder="Search products...."
       />
     </div>
   );
