@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getProducts } from '../services/products.service';
+import { productService } from '../services';
 
 function useProducts() {
   const [products, setProducts] = useState([]);
@@ -9,7 +9,7 @@ function useProducts() {
   useEffect(() => {
     async function loadProducts() {
       try {
-        const data = await getProducts();
+        const data = await productService.getProducts();
         if (!Array.isArray(data?.products)) {
           throw new Error('Invalid products response');
         }

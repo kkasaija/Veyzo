@@ -2,16 +2,6 @@ import { useMemo, useState } from 'react';
 
 const usePagination = (items, itemsPerPage = 12) => {
   const [currentPage, setCurrentPage] = useState(1);
-
-  // const previousItems = useRef(items);
-
-  // useEffect(() => {
-  //   if (previousItems.current !== items) {
-  //     setCurrentPage(1);
-  //     previousItems.current = items;
-  //   }
-  // }, [items, currentPage]);
-
   const { totalPages, paginatedItems, visiblePages, hasPreviousPage, hasNextPage } = useMemo(() => {
     const totalPages = Math.ceil(items.length / itemsPerPage);
 

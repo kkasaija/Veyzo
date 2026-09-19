@@ -1,15 +1,13 @@
-const baseUrl = 'https://dummyjson.com';
+import api from './api/axios';
 
 const getProducts = async () => {
-  const response = await fetch(`${baseUrl}/products`);
-  if (!response.ok) throw new Error('Products fetch failed');
-  return response.json();
+  const { data } = await api.get('/products');
+  return data.products;
 };
 
-const getProduct = async (id) => {
-  const response = await fetch(`${baseUrl}/products/${id}`);
-  if (!response.ok) throw new Error('Product fetch failed');
-  return response.json();
+const getProductById = async (id) => {
+  const { data } = await api.get(`/products/${id}`);
+  return data;
 };
 
-export { getProducts, getProduct };
+export default { getProducts, getProductById };
