@@ -1,8 +1,8 @@
-import useCart from '../../hooks/useCart';
+import { addItem, decrementItem, removeItem, clearCart } from '../../features/cart/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const CartItem = ({ item }) => {
-  const { addToCart, removeFromCart, removeItem } = useCart();
-
+  const dispatch = useDispatch();
   const { product, quantity } = item;
 
   return (
@@ -24,10 +24,8 @@ const CartItem = ({ item }) => {
       </div>
 
       <div className="cart-item__actions">
-        <button onClick={() => addToCart(product)}>+</button>
-
+        <button onClick={() => dispatch(addItem(product))}>+</button>
         <span>{quantity}</span>
-
         <button onClick={() => removeFromCart(product.id)}>-</button>
 
         <button
