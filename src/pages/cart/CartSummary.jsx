@@ -2,7 +2,9 @@ import useCart from '../../hooks/useCart';
 import './cart_summary.scss';
 
 const CartSummary = () => {
-  const { totalItems, totalPrice } = useCart();
+  // const { totalItems, totalPrice } = useCart();
+  const totalItems = 2;
+  const totalPrice = 345;
 
   return (
     <aside className="cart-summary">

@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @use '../../styles/abstracts/' as *;
 
 .pagination {
@@ -11,7 +13,7 @@
   &__button {
     min-width: 2.75rem;
     padding: $spacing-sm $spacing-md;
-    border: 1px solid lighten($color-secondary, 45%);
+    border: 1px solid color.adjust($color-secondary, $lightness: 45%, $space: hsl);
     border-radius: $border-radius;
     background-color: $color-white;
     color: $color-secondary;
@@ -38,8 +40,8 @@
       font-weight: 600;
 
       &:hover {
-        background-color: darken($color-primary, 8%);
-        border-color: darken($color-primary, 8%);
+        background-color: color.adjust($color-primary, $lightness: -8%, $space: hsl);
+        border-color: color.adjust($color-primary, $lightness: -8%, $space: hsl);
       }
     }
   }

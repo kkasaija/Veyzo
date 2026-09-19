@@ -1,10 +1,10 @@
-import useCart from '../../hooks/useCart';
+import { useSelector } from 'react-redux';
 import CartItem from './CartItem';
 import CartSummary from './CartSummary';
 import './cart.scss';
 
 const Cart = () => {
-  const { cart } = useCart();
+  const cart = useSelector((state) => state.cart.items);
 
   if (cart.length === 0) {
     return (
