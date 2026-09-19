@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getProduct } from '../services/products.service';
+import { productService } from '../services';
 
 function useProduct(id) {
   const [product, setProduct] = useState(null);
@@ -11,7 +11,7 @@ function useProduct(id) {
       setLoading(true);
       setError(null);
       try {
-        const data = await getProduct(id);
+        const data = await productService.getProductById(id);
         setProduct(data);
       } catch (error) {
         setError(error.message);
