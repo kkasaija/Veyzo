@@ -7,7 +7,7 @@ function ProductPrice({ product }) {
 
   return (
     <div className="product-details__price">
-      <s>{getFormattedCurrency(price)}</s>
+      <span className="product-details__price-original">{getFormattedCurrency(price)}</span>
       <span className="product-details__price-current">
         {getFormattedCurrency(discountedPrice)}
       </span>

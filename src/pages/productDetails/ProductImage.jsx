@@ -1,4 +1,4 @@
-const ProductImage = ({ product }) => {
+function ProductImage({ product }) {
   return (
     <section className="product-details__image">
       <img
@@ -7,6 +7,6 @@ const ProductImage = ({ product }) => {
       />
     </section>
   );
-};
+}
 
 export default ProductImage;

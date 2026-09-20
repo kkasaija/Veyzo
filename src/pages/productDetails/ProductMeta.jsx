@@ -8,10 +8,13 @@ function ProductMeta({ product }) {
         Category: <strong>{product.category}</strong>
       </p>
       <p className="product-details__rating">
-        Rating: <span className="product-details__star">★</span>
+        Rating
+        <span className="product-details__star">★</span>
         {product.rating}
       </p>
-      <p>Stock: {product.stock}</p>
+      <p>
+        Stock: <strong>{product.stock}</strong>
+      </p>
     </div>
   );
 }

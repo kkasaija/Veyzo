@@ -1,14 +1,15 @@
 import { Link, useParams } from 'react-router-dom';
-import useProduct from '../../hooks/useProduct';
 import Loader from '../../components/loader';
+import useProduct from '../../hooks/useProduct';
 import ProductImage from './ProductImage';
 import ProductInfo from './ProductInfo';
-
+import RelatedProducts from './RelatedProducts';
 import './product_details.scss';
 
-const Product = () => {
+function Product() {
   const { id } = useParams();
-  const { product, error, loading } = useProduct(Number(id));
+
+  const { product, loading, error } = useProduct(Number(id));
 
   if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
@@ -22,13 +23,13 @@ const Product = () => {
       >
         ← Back to Products
       </Link>
-
-      <div className="product-details__content">
+      <section className="product-details__content">
         <ProductImage product={product} />
         <ProductInfo product={product} />
-      </div>
+      </section>
+      <RelatedProducts product={product} />
     </main>
   );
-};
+}
 
 export default Product;
