@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
+import cartSelector from '../../features/cart/cartSelector';
 import CartItem from './CartItem';
 import CartSummary from './CartSummary';
 import './cart.scss';
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart.items);
+  const cart = useSelector(cartSelector.cartItems);
 
   if (cart.length === 0) {
     return (
@@ -23,7 +24,7 @@ const Cart = () => {
         <div className="cart__items">
           {cart.map((item) => (
             <CartItem
-              key={item.id} // or item.product.id depending on your data structure
+              key={item.product.id}
               item={item}
             />
           ))}

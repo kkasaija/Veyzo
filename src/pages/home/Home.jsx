@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import useProducts from '../../hooks/useProducts';
 import useCategories from '../../hooks/useCategories';
 
 import useProductFilters from '../../hooks/useProductFilters';
-import useProducts from '../../hooks/useProducts';
 import usePagination from '../../hooks/usePagination';
 
 import ProductCard from '../../components/product';
@@ -17,9 +18,11 @@ import Pagination from '../../components/pagination';
 import './home.scss';
 
 const Home = () => {
-  const [filters, setFilters] = useState({ search: '', sort: '', category: '' });
-  const { error, loading, products } = useProducts();
+  const initialFilters = { search: '', sort: '', category: '' };
+  const [filters, setFilters] = useState(initialFilters);
+  const { products, loading, error } = useProducts();
   const categories = useCategories(products);
+
   //search
   const filteredProducts = useProductFilters(products, filters);
   const {
@@ -33,7 +36,7 @@ const Home = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [filters.search, filters.category, filters.sort]);
+  }, [filters.search, filters.category, filters.sort, setCurrentPage]);
 
   function handleFilterChange(e) {
     setFilters((prevState) => ({

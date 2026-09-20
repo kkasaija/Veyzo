@@ -17,14 +17,14 @@ const cartSlice = createSlice({
 
     decrementItem(state, action) {
       const productId = action.payload;
-      const item = state.items.find((item) => item.product.id === productId);
+      const item = state.items.find(({ product }) => product.id === productId);
       if (!item) return;
       if (item.quantity > 1) item.quantity--;
-      else state.items = state.items.filter((item) => item.product.id !== productId);
+      else state.items = state.items.filter(({ product }) => product.id !== productId);
     },
 
     removeItem(state, action) {
-      state.items = state.items.filter((item) => item.product.id !== action.payload);
+      state.items = state.items.filter(({ product }) => product.id !== action.payload);
     },
 
     clearCart(state) {

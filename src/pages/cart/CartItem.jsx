@@ -26,11 +26,11 @@ const CartItem = ({ item }) => {
       <div className="cart-item__actions">
         <button onClick={() => dispatch(addItem(product))}>+</button>
         <span>{quantity}</span>
-        <button onClick={() => removeFromCart(product.id)}>-</button>
+        <button onClick={() => dispatch(decrementItem(product.id))}>-</button>
 
         <button
           className="cart-item__remove"
-          onClick={() => removeItem(product.id)}
+          onClick={() => dispatch(removeItem(product.id))}
         >
           Remove
         </button>
