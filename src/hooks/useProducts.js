@@ -1,30 +1,23 @@
-import { useState, useEffect } from 'react';
-import { productService } from '../services';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../features/products/productSlice';
+import productSelector from '../features/products/productSelectors';
 
-function useProducts() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const useProducts = () => {
+  const dispatch = useDispatch();
+  const products = useSelector(productSelector.products);
+  const loading = useSelector(productSelector.loading);
+  const error = useSelector(productSelector.error);
 
   useEffect(() => {
-    async function loadProducts() {
-      try {
-        const data = await productService.getProducts();
-        if (!Array.isArray(data?.products)) {
-          throw new Error('Invalid products response');
-        }
+    if (products.length === 0) dispatch(fetchProducts());
+  }, [dispatch, products.length]);
 
-        setProducts(data.products);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadProducts();
-  }, []);
-
-  return { products, error, loading };
-}
+  return {
+    products,
+    loading,
+    error,
+  };
+};
 
 export default useProducts;

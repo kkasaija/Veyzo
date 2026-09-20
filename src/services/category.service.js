@@ -1,4 +1,3 @@
-//anything that communicates with backend, becomes a service
 import api from './api/axios';
 
 const getCategories = async () => {
@@ -6,4 +5,4 @@ const getCategories = async () => {
   return data;
 };
 
-export default { getCategories };
+export default getCategories;
