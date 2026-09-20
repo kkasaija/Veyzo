@@ -22,35 +22,99 @@
 
 # 📖 About the Project <a id="about-the-project"></a>
 
-[Veyzo] is a web application designed to act as a marketplace where sellers post their products for buyers to buy.
+# 📖 About the Project <a id="about-the-project"></a>
 
-The project is currently under active development, with the core user interface being built incrementally.
+**Veyzo** is a modern e-commerce marketplace built with **React**, **Redux Toolkit**, **Axios**, and **SCSS**. The application allows sellers to showcase products and buyers to browse, search, filter, and purchase items through an intuitive shopping experience.
+
+This project is being developed as a learning journey into modern React development. It follows production-ready architectural patterns including feature-based organization, Redux Toolkit for state management, a service layer for API communication, reusable custom hooks, and scalable component design.
+
+The frontend currently consumes the **DummyJSON API**, with the intention of integrating a custom **Node.js/Express backend** later in development.
 
 ## 🛠 Built With <a id="built-with"></a>
 
 ### Tech Stack <a id="tech-stack"></a>
 
-<details> 
-  <summary>Client</summary> 
-    <ul> 
-      <li><a href="https://react.dev/">React.js</a></li> 
-      <li>JavaScript</li> <li>CSS</li> 
-    </ul> 
-</details> 
-<details> 
-  <summary>Build Tool</summary> 
-  <ul> 
-    <li><a href="https://vite.dev/">Vite</a></li> 
-  </ul>
+<details>
+  <summary>Client</summary>
+  - React
+  - React Router
+  - Redux Toolkit
+  - React Redux
+  - Axios
+  - JavaScript (ES6+)
+  - SCSS
+  - HTML5
 </details>
 
-## Key Features <a id="key-features"></a>
+<details>
+  <summary>Build Tool</summary>
+  - Vite
+</details>
 
-Key features will be added as development progresses.
+<details>
+  <summary>API</summary>
+  - DummyJSON
+</details>
 
-- Responsive Navigation – Basic navigation structure implemented
-- Home Page – Currently under development
-- Reusable Components – Components will be developed and organized for reuse
+## 🚀 Key Features <a id="key-features"></a>
+
+- Product Listing
+- Product Details
+- Shopping Cart
+- Client-side Pagination
+- Product Search
+- Category Filtering
+- Product Sorting
+- Responsive Navigation
+- Redux Toolkit State Management
+- Entity Adapter Normalized State
+- Axios Service Layer
+- Custom React Hooks
+- Persistent Cart Storage (Local Storage)
+- Reusable Components
+- SCSS Architecture
+
+[Back to top](#table-of-contents)
+
+## 🏗 Project Architecture
+
+```
+Component
+    │
+    ▼
+Custom Hook
+    │
+    ▼
+Redux Selector
+    │
+    ▼
+Redux Store
+    │
+    ▼
+Slice
+    │
+    ▼
+Async Thunk
+    │
+    ▼
+Service Layer
+    │
+    ▼
+Axios
+    │
+    ▼
+REST API
+```
+
+The project follows a feature-based architecture with clear separation of concerns:
+
+- **Components** are responsible for rendering UI.
+- **Custom Hooks** encapsulate reusable business logic.
+- **Selectors** provide access to Redux state.
+- **Slices** manage application state.
+- **Async Thunks** handle asynchronous operations.
+- **Services** communicate with external APIs.
+- **Axios** centralizes HTTP configuration.
 
 [Back to top](#table-of-contents)
 
@@ -107,37 +171,31 @@ cd veyzo
 
 ### 📊 Development Progress <a id="development-progress"></a>
 
-- This section tracks the current development status of the project.
-  Current Progress
-  Area Status Notes
-  - Project Setup ✅ Complete React project initialized
-  - Navbar ✅ Basic Version Functional, but requires further improvements
-  - Home Component 🚧 In Progress Currently being developed
-  - Responsive Design ⏳ Planned, Will be refined across the application
-  - Additional Components ⏳ Planned, Will be added as development continues
-  - Testing ⏳ Planned Tests will be added later
-  - Deployment ⏳ Planned Will be completed after core development
-    Completed
-
-    Initialize React project
-    Set up project structure
-    Create basic Navbar
-    Add initial navigation structure
-
-Currently Working On
-
-    Build Home component
-    Design Home page layout
-    Add Home page sections
-    Improve overall UI structure
-
-Needs Improvement
-
-    Improve Navbar styling
-    Improve Navbar responsiveness
-    Add active navigation states
-    Improve accessibility
-    Refactor components where necessary
+| Feature                | Status         |
+| ---------------------- | -------------- |
+| Project Setup          | ✅ Complete    |
+| Routing                | ✅ Complete    |
+| Layout Components      | ✅ Complete    |
+| Hero Section           | ✅ Complete    |
+| Product Listing        | ✅ Complete    |
+| Product Details        | ✅ Complete    |
+| Product Search         | ✅ Complete    |
+| Category Filtering     | ✅ Complete    |
+| Product Sorting        | ✅ Complete    |
+| Client-side Pagination | ✅ Complete    |
+| Shopping Cart          | ✅ Complete    |
+| Local Storage          | ✅ Complete    |
+| Redux Toolkit          | ✅ Complete    |
+| Entity Adapter         | ✅ Complete    |
+| Axios Integration      | ✅ Complete    |
+| Product Services       | ✅ Complete    |
+| Responsive Design      | 🚧 In Progress |
+| Authentication         | ⏳ Planned     |
+| Checkout               | ⏳ Planned     |
+| Orders                 | ⏳ Planned     |
+| Backend Integration    | ⏳ Planned     |
+| Testing                | ⏳ Planned     |
+| Deployment             | ⏳ Planned     |
 
 [Back to top](#table-of-contents)
 
@@ -153,16 +211,22 @@ Twitter: @kenn_ug
 
 The following features are planned as the project develops:
 
-    Complete and refine the Home component
-    Improve Navbar design and responsiveness
-    Add additional application pages
-    Create reusable UI components
-    Add responsive design across all pages
-    Add animations and transitions
-    Add form validation where required
-    Add API integration if required
-    Add automated tests
-    Optimize application performance
+- Wishlist
+- User Authentication
+- Protected Routes
+- User Profiles
+- Checkout System
+- Order History
+- Product Reviews
+- Related Products
+- Admin Dashboard
+- Backend Integration
+- Server-side Pagination
+- Payment Integration
+- Product Management
+- Image Uploads
+- Automated Testing
+- CI/CD Pipeline
 
 [Back to top](#table-of-contents)
 
@@ -197,14 +261,23 @@ I would like to thank the developers, open-source contributors, and communities 
 
 [Back to top](#table-of-contents)
 
-## ❓ FAQ (OPTIONAL) <a id="faq-optional"></a>
+## ❓ FAQ <a id="faq-optional"></a>
 
-Is the project complete?
+### Why does the project use DummyJSON?
 
-No. The project is currently under active development. The Navbar has a basic implementation, and development is currently focused on the Home component.
-Will more features be added?
+The frontend is being developed independently to focus on learning React and Redux Toolkit. A custom Express backend will replace DummyJSON later.
 
-Yes. New features and improvements will be documented in the Future Features and Development Progress sections as the project evolves.
+### Why Redux Toolkit instead of Context API?
+
+Redux Toolkit provides a scalable architecture for managing application state and is better suited for larger applications.
+
+### Is the backend complete?
+
+No. The current focus is on building a production-quality frontend before integrating the backend.
+
+### Is this project production ready?
+
+Not yet. The frontend architecture follows production best practices, but authentication, checkout, orders, testing, and backend integration are still under development.
 
 [Back to top](#table-of-contents)
 

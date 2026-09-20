@@ -17,9 +17,10 @@ import Pagination from '../../components/pagination';
 
 import './home.scss';
 
+const INITIAL_FILTERS = { search: '', sort: '', category: '' };
+
 const Home = () => {
-  const initialFilters = { search: '', sort: '', category: '' };
-  const [filters, setFilters] = useState(initialFilters);
+  const [filters, setFilters] = useState(INITIAL_FILTERS);
   const { products, loading, error } = useProducts();
   const categories = useCategories(products);
 
@@ -34,19 +35,27 @@ const Home = () => {
     setCurrentPage,
   } = usePagination(filteredProducts);
 
+  //pagination reset
   useEffect(() => {
     setCurrentPage(1);
   }, [filters.search, filters.category, filters.sort, setCurrentPage]);
 
-  function handleFilterChange(e) {
+  const handleFilterChange = (e) => {
     setFilters((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
-  }
+  };
 
   if (loading) return <Loader />;
-  if (error) return <p>{error}</p>;
+  if (error) {
+    return (
+      <div className="home__error">
+        <h2>Unable to load products</h2>
+        <p>{error}</p>
+      </div>
+    );
+  }
 
   return (
     <main className="home">

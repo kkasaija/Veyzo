@@ -1,8 +1,14 @@
+import { productsAdapter } from './productSlice';
+
+const adapterSelectors = productsAdapter.getSelectors((state) => state.products);
 const productSelector = {
-  products: (state) => state.products.list,
+  products: adapterSelectors.selectAll,
+  productById: (id) => (state) => adapterSelectors.selectById(state, Number(id)),
+  productIds: adapterSelectors.selectIds,
+  productEntities: adapterSelectors.selectEntities,
+  totalProducts: adapterSelectors.selectTotal,
   loading: (state) => state.products.loading,
   error: (state) => state.products.error,
-  product: (id) => (state) => state.products.list.find((product) => product.id === Number(id)),
 };
 
 export default productSelector;
