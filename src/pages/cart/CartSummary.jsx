@@ -1,5 +1,6 @@
-import cartSelector from '../../features/cart/cartSelector';
 import { useSelector } from 'react-redux';
+import cartSelector from '../../features/cart/cartSelector';
+import Button from '../../components/button/Button';
 import './cart_summary.scss';
 
 const CartSummary = () => {
@@ -30,8 +31,7 @@ const CartSummary = () => {
         <span>Total: </span>
         <strong>${totalPrice.toFixed(2)}</strong>
       </div>
-
-      <button className="cart-summary__checkout">Proceed to Checkout</button>
+      <Button className="cart-summary__checkout">Proceed to Checkout</Button>
     </aside>
   );
 };

@@ -1,4 +1,5 @@
 import useCart from '../../hooks/useCart';
+import Button from '../../components/button/Button';
 
 const CartItem = ({ item }) => {
   const { removeFromCart, updateQuantity } = useCart();
@@ -40,16 +41,16 @@ const CartItem = ({ item }) => {
       </div>
 
       <div className="cart-item__actions">
-        <button onClick={handleIncrement}>+</button>
+        <Button onClick={handleIncrement}>+</Button>
         <span>{quantity}</span>
-        <button onClick={handleDecrement}>-</button>
+        <Button onClick={handleDecrement}>-</Button>
 
-        <button
+        <Button
           className="cart-item__remove"
           onClick={() => removeFromCart(product.id)}
         >
           Remove
-        </button>
+        </Button>
       </div>
     </article>
   );
