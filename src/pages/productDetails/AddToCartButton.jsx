@@ -1,4 +1,5 @@
 import useCart from '../../hooks/useCart';
+import Button from '../../components/button/Button';
 
 function AddToCartButton({ product, quantity }) {
   const { addToCart } = useCart();
@@ -8,12 +9,15 @@ function AddToCartButton({ product, quantity }) {
   };
 
   return (
-    <button
-      className="btn btn--primary"
-      onClick={handleClick}
-    >
-      Add to Cart
-    </button>
+    <>
+      <Button
+        variant="primary"
+        onClick={handleClick}
+        disabled={product.stock === 0}
+      >
+        {product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+      </Button>
+    </>
   );
 }
 
