@@ -10,6 +10,7 @@ const useProducts = () => {
   const error = useSelector(productSelector.error);
 
   useEffect(() => {
+    // Only fetch if the store doesn't already contain products
     if (products.length === 0) dispatch(fetchProducts());
   }, [dispatch, products.length]);
 

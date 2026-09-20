@@ -19,7 +19,7 @@ function Navbar() {
         to="/"
         className="navbar__logo"
       >
-        ReactCommerce
+        VEYZO
       </Link>
 
       <ul className="navbar__links">
