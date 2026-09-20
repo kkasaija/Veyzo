@@ -1,10 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import cartSelector from '../../../features/cart/cartSelector';
 import './navbar.scss';
 
 function Navbar() {
-  const cart = useSelector((state) => state.cart.items);
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  const totalItems = useSelector(cartSelector.totalItems);
 
   const navLinks = [
     { id: 1, label: 'Home', path: '/' },

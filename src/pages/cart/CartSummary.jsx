@@ -1,33 +1,33 @@
-import useCart from '../../hooks/useCart';
+import cartSelector from '../../features/cart/cartSelector';
+import { useSelector } from 'react-redux';
 import './cart_summary.scss';
 
 const CartSummary = () => {
-  // const { totalItems, totalPrice } = useCart();
-  const totalItems = 2;
-  const totalPrice = 345;
+  const totalPrice = useSelector(cartSelector.totalPrice);
+  const totalItems = useSelector(cartSelector.totalItems);
 
   return (
     <aside className="cart-summary">
       <h2>Order Summary</h2>
       <div className="cart-summary__row">
-        <span>Items</span>
+        <span>Quantity: </span>
         <span>{totalItems}</span>
       </div>
 
       <div className="cart-summary__row">
-        <span>Subtotal</span>
+        <span>Subtotal: </span>
         <span>${totalPrice.toFixed(2)}</span>
       </div>
 
       <div className="cart-summary__row">
-        <span>Shipping</span>
+        <span>Shipping: </span>
         <span>Free</span>
       </div>
 
       <hr className="cart-summary__divider" />
 
       <div className="cart-summary__total">
-        <span>Total</span>
+        <span>Total: </span>
         <strong>${totalPrice.toFixed(2)}</strong>
       </div>
 

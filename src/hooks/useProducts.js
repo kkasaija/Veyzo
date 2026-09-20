@@ -10,7 +10,6 @@ function useProducts() {
     async function loadProducts() {
       try {
         const data = await productService.getProducts();
-        console.log(data)
         if (!Array.isArray(data?.products)) {
           throw new Error('Invalid products response');
         }

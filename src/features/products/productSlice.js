@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { productService } from '../../services/products.service';
+import productService from '../../services/products.service';
 
 const initialState = {
   list: [],
@@ -21,7 +21,7 @@ const productSlice = createSlice({
     builder
       .addCase(fetchProducts.pending, (state) => {
         state.loading = true;
-        state.error = null;//clear the error from previous values
+        state.error = null; //clear the error from previous values
       })
 
       .addCase(fetchProducts.fulfilled, (state, action) => {
