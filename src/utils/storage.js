@@ -1,24 +1,18 @@
-const STORAGE_KEYS = { cart: 'react-commerce-cart' };
+const STORAGE_KEY = 'veyzo-cart';
 
-function getStorageItem(key, fallbackValue) {
+export function loadCart() {
   try {
-    const storedValue = localStorage.getItem(key);
-    return storedValue ? JSON.parse(storedValue) : fallbackValue;
+    const cart = localStorage.getItem(STORAGE_KEY);
+    return cart ? JSON.parse(cart) : [];
   } catch {
-    return fallbackValue;
+    return [];
   }
 }
 
-function setStorageItem(key, value) {
+export function saveCart(items) {
   try {
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   } catch {
     throw new Error('Unable to save to localStorage.');
   }
 }
-
-function removeStoredItem(key) {
-  localStorage.removeItem(key);
-}
-
-export { STORAGE_KEYS, getStorageItem, setStorageItem, removeStoredItem };

@@ -1,0 +1,39 @@
+@use '../../../styles/abstracts/' as *;
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+  background: $background-card;
+
+  button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: $color-gray-100;
+    color: $text-primary;
+    cursor: pointer;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    transition: all $transition;
+
+    &:hover {
+      background: $color-primary;
+      color: $color-white;
+    }
+  }
+
+  span {
+    min-width: 50px;
+    text-align: center;
+    font-size: $font-size-md;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+  }
+}
+
+
+:focus-visible{outline:2px solid $color-primary;outline-offset:2px;}

@@ -1,4 +1,4 @@
-function ProductMeta({ product }) {
+const ProductMeta = ({ product }) => {
   return (
     <div className="product-details__meta">
       <p>
@@ -17,6 +17,6 @@ function ProductMeta({ product }) {
       </p>
     </div>
   );
-}
+};
 
 export default ProductMeta;

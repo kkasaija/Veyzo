@@ -1,0 +1,59 @@
+@use '../../../styles/abstracts/' as *;
+@use './gallery';
+@use './image';
+@use './info';
+@use './meta';
+@use './price';
+@use './quantity';
+@use './related';
+
+.product-details {
+  max-width: $container-width;
+  margin: $spacing-xl auto;
+  padding: 0 $spacing-md;
+
+  &__back {
+    display: inline-block;
+    margin-bottom: $spacing-xl;
+    text-decoration: none;
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+    transition: color $transition;
+
+    &:hover {
+      color: $color-primary-dark;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-2xl;
+    align-items: flex-start;
+  }
+}
+
+/*responsive*/
+
+@media (max-width: 768px) {
+  .product-details {
+    padding: 0 $spacing-md;
+
+    &__content {
+      grid-template-columns: 1fr;
+      gap: $spacing-xl;
+    }
+
+    &__title {
+      font-size: 1.6rem;
+    }
+
+    &__price-current {
+      font-size: 1.6rem;
+    }
+  }
+
+  .product-gallery {
+    justify-content: center;
+  }
+}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ProductGallery from './ProductGallery';
 
-function ProductImage({ product }) {
+const ProductImage = ({ product }) => {
   const images = product.images?.length ? product.images : [product.thumbnail];
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
@@ -22,6 +22,6 @@ function ProductImage({ product }) {
       />
     </section>
   );
-}
+};
 
 export default ProductImage;

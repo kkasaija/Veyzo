@@ -1,0 +1,31 @@
+@use '../../../styles/abstracts/' as *;
+@use './mixins' as *;
+
+@include product-details {
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    p {
+      margin: 0;
+      color: $text-secondary;
+    }
+
+    strong {
+      color: $text-primary;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+  &__star {
+    color: $color-accent;
+    font-size: $font-size-lg;
+  }
+}

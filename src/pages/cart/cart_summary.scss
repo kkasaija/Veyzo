@@ -1,20 +1,90 @@
 @use '../../styles/abstracts/' as *;
 
+// .cart-summary {
+//   background: $color-white;
+//   border-radius: $border-radius;
+//   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+//   padding: $spacing-xl;
+//   position: sticky;
+//   top: $spacing-xl;
+//   display: flex;
+//   flex-direction: column;
+//   gap: $spacing-lg;
+//   height: fit-content;
+
+//   h2 {
+//     color: $color-secondary;
+//     font-size: $font-size-lg;
+//   }
+
+//   &__row,
+//   &__total {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//   }
+
+//   &__row {
+//     color: $color-secondary;
+//   }
+
+//   hr {
+//     border: none;
+//     border-top: 1px solid rgba(0, 0, 0, 0.1);
+//   }
+
+//   &__total {
+//     font-size: $font-size-lg;
+//     font-weight: bold;
+//     color: $color-secondary;
+//   }
+
+//   &__checkout {
+//     padding: $spacing-md;
+//     border: none;
+//     border-radius: $border-radius;
+//     cursor: pointer;
+//     background: $color-primary;
+//     color: $color-white;
+//     font-size: $font-size-md;
+//     font-weight: bold;
+//     transition: 0.3s;
+
+//     &:hover {
+//       background: $color-secondary;
+//       transform: translateY(-2px);
+//     }
+
+//     &:active {
+//       transform: translateY(0);
+//     }
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .cart-summary {
+//     position: static;
+//   }
+// }
+
 .cart-summary {
-  background: $color-white;
+  background: $background-card;
+  border: 1px solid $border-color;
   border-radius: $border-radius;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: $shadow-sm;
   padding: $spacing-xl;
-  position: sticky;
-  top: $spacing-xl;
   display: flex;
   flex-direction: column;
   gap: $spacing-lg;
+  position: sticky;
+  top: $spacing-xl;
   height: fit-content;
 
   h2 {
-    color: $color-secondary;
+    margin: 0;
+    color: $text-primary;
     font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
   }
 
   &__row,
@@ -25,38 +95,30 @@
   }
 
   &__row {
-    color: $color-secondary;
+    color: $text-secondary;
+    font-size: $font-size-md;
   }
 
-  hr {
+  &__divider {
     border: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid $border-color;
+    margin: 0;
   }
 
   &__total {
     font-size: $font-size-lg;
-    font-weight: bold;
-    color: $color-secondary;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
   }
 
-  &__checkout {
-    padding: $spacing-md;
-    border: none;
-    border-radius: $border-radius;
-    cursor: pointer;
-    background: $color-primary;
-    color: $color-white;
-    font-size: $font-size-md;
-    font-weight: bold;
-    transition: 0.3s;
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-top: $spacing-sm;
 
-    &:hover {
-      background: $color-secondary;
-      transform: translateY(-2px);
-    }
-
-    &:active {
-      transform: translateY(0);
+    .btn {
+      width: 100%;
     }
   }
 }

@@ -4,13 +4,11 @@ import useProduct from '../../hooks/useProduct';
 import ProductImage from './ProductImage';
 import ProductInfo from './ProductInfo';
 import RelatedProducts from './RelatedProducts';
-import './product_details.scss';
+import './styles/product.scss';
 
-function Product() {
+const Product = () => {
   const { id } = useParams();
-
   const { product, loading, error } = useProduct(Number(id));
-
   if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
   if (!product) return <p>Product not found.</p>;
@@ -30,6 +28,6 @@ function Product() {
       <RelatedProducts product={product} />
     </main>
   );
-}
+};
 
 export default Product;

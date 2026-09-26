@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 function QuantitySelector({ quantity, onQuantityChange }) {
   const increment = () => {
     onQuantityChange(quantity + 1);

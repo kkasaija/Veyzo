@@ -5,7 +5,7 @@ import ProductPrice from './ProductPrice';
 import QuantitySelector from './QuantitySelector';
 import AddToCartButton from './AddToCartButton';
 
-function ProductInfo({ product }) {
+const ProductInfo = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
@@ -25,6 +25,6 @@ function ProductInfo({ product }) {
       />
     </section>
   );
-}
+};
 
 export default ProductInfo;

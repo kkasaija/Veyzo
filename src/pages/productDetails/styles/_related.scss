@@ -1,0 +1,11 @@
+@use '../../../styles/abstracts/' as *;
+
+.related-products {
+  margin-top: $spacing-2xl;
+
+  h2 {
+    margin-bottom: $spacing-lg;
+    font-size: $font-size-lg;
+    color: $text-primary;
+  }
+}
