@@ -1,0 +1,27 @@
+@use '../../../styles/abstracts/' as *;
+@use './mixins' as *;
+
+@include product-details {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    .btn {
+      width: fit-content;
+      margin-top: $spacing-sm;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    line-height: 1.3;
+  }
+
+  &__description {
+    color: $text-secondary;
+    line-height: 1.8;
+  }
+}

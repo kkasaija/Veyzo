@@ -1,0 +1,35 @@
+@use '../../../styles/abstracts/' as *;
+
+.product-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.product-thumbnail {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: $border-radius;
+  background: $background-card;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color $transition;
+
+  img {
+    display: block;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+  }
+
+  &:hover {
+    border-color: $color-primary;
+  }
+
+  &--active {
+    border-color: $color-primary;
+  }
+}
+
+
+:focus-visible{outline:2px solid $color-primary;outline-offset:2px;}

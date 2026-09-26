@@ -1,0 +1,29 @@
+@use '../../../styles/abstracts/' as *;
+@use './mixins' as *;
+
+@include product-details {
+  &__image {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $background-card;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+
+    img {
+      width: 70%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      display: block;
+      padding: $spacing-lg;
+    }
+  }
+}

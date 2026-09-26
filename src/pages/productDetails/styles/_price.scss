@@ -1,0 +1,33 @@
+@use '../../../styles/abstracts/' as *;
+@use './mixins' as *;
+
+@include product-details {
+  &__price {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+  }
+
+  &__price-original {
+    color: $text-light;
+    text-decoration: line-through;
+    font-size: $font-size-md;
+    font-weight: $font-weight-normal;
+  }
+
+  &__price-current {
+    color: $color-primary;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+  }
+
+  &__price-discount {
+    padding: $spacing-xs $spacing-sm;
+    border-radius: 999px;
+    background: $color-accent;
+    color: $color-white;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+  }
+}
