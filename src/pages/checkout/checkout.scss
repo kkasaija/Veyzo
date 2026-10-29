@@ -1,0 +1,26 @@
+@use '../../styles/abstracts' as *;
+
+.checkout {
+  max-width: $container-width;
+  margin: $spacing-2xl auto;
+  padding: 0 $spacing-md;
+
+  &__title {
+    margin-bottom: $spacing-xl;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-2xl;
+    align-items: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout {
+    &__content {
+      grid-template-columns: 1fr;
+    }
+  }
+}

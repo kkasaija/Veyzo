@@ -3,6 +3,7 @@ import cartSelector from '../../features/cart/cartSelector';
 import Button from '../../components/button/Button';
 import './cart_summary.scss';
 import { clearCart } from '../../features/cart/cartSlice';
+import { Link } from 'react-router-dom';
 
 const CartSummary = () => {
   const totalPrice = useSelector(cartSelector.totalPrice);
@@ -40,14 +41,9 @@ const CartSummary = () => {
       </div>
 
       <div className="cart-summary__actions">
-        <Button>Proceed to Checkout</Button>
-
-        <Button
-          variant="danger"
-          onClick={handleClearCart}
-        >
-          Clear Cart
-        </Button>
+        <Link to="/checkout">
+          <Button>Proceed to Checkout</Button>
+        </Link>
       </div>
     </aside>
   );

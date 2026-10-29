@@ -4,6 +4,7 @@ import Navbar from './components/layout/navbar';
 import Home from './pages/home';
 import ProductDetails from './pages/productDetails';
 import Cart from './pages/cart';
+import Checkout from './pages/checkout'
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
         <Route
           path="/cart"
           element={<Cart />}
+        />
+        <Route
+          path="/checkout"
+          element={<Checkout />}
         />
       </Routes>
     </>
