@@ -1,0 +1,46 @@
+@use '../../styles/abstracts' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  overflow: hidden;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &--hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  &--sm {
+    padding: $spacing-sm;
+  }
+
+  &--md {
+    padding: $spacing-lg;
+  }
+
+  &--lg {
+    padding: $spacing-xl;
+  }
+
+  &__header {
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid $color-border;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__body {
+    flex: 1;
+    padding: $spacing-lg 0;
+  }
+
+  &__footer {
+    padding-top: $spacing-md;
+    border-top: 1px solid $color-border;
+  }
+}

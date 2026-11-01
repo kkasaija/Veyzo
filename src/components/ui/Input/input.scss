@@ -1,0 +1,53 @@
+@use '../../styles/abstracts' as *;
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  &__label {
+    font-weight: 600;
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+    padding: 0 $spacing-md;
+    transition: border-color 0.2s;
+
+    &:focus-within {
+      border-color: $color-primary;
+    }
+
+    &--error {
+      border-color: $color-danger;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    color: $color-text-light;
+  }
+
+  &__helper {
+    color: $color-text-light;
+    font-size: 0.875rem;
+  }
+
+  &__error {
+    color: $color-danger;
+    font-size: 0.875rem;
+  }
+}
+
+.input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: $spacing-md 0;
+  background: transparent;
+  font: inherit;
+}

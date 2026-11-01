@@ -1,0 +1,27 @@
+@use '../../styles/abstracts' as *;
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  &__label {
+    font-weight: $font-weight-medium;
+    color: $color-text;
+  }
+
+  &__required {
+    margin-left: 0.25rem;
+    color: $color-danger;
+  }
+
+  &__helper {
+    color: $color-text-light;
+    font-size: $font-size-sm;
+  }
+
+  &__error {
+    color: $color-danger;
+    font-size: $font-size-sm;
+  }
+}
