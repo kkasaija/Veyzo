@@ -1,10 +1,10 @@
+import classNames from '../../../utils/classNames';
+
 import './card.scss';
 
 const Card = ({ children, className = '', hover = false, padding = 'md', ...rest }) => {
-  const classes = ['card', `card--${padding}`, hover && 'card--hover', className]
-    .filter(Boolean)
-    .join(' ');
-
+  const classes = classNames('card', `card--${padding}`, hover && 'card--hover', className);
+  
   return (
     <div
       className={classes}

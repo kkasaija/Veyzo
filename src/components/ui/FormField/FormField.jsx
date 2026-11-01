@@ -1,3 +1,4 @@
+import classNames from '../../../utils/classNames';
 import './form_field.scss';
 
 const FormField = ({
@@ -9,7 +10,7 @@ const FormField = ({
   className = '',
   children,
 }) => {
-  const classes = ['form-field', error && 'form-field--error', className].filter(Boolean).join(' ');
+  const classes = classNames('form-field', error && 'form-field--error', className);
   return (
     <div className={classes}>
       {label && (

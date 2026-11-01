@@ -1,3 +1,4 @@
+import classNames from '../../../utils/classNames';
 import './button.scss';
 
 const Button = ({
@@ -13,16 +14,14 @@ const Button = ({
   className = '',
   ...rest
 }) => {
-  const classes = [
+  const classes = classNames(
     'btn',
     `btn--${variant}`,
     `btn--${size}`,
     fullWidth && 'btn--full',
     loading && 'btn--loading',
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+    className
+  );
 
   return (
     <button
