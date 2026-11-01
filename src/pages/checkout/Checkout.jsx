@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import cartSelector from '../../features/cart/cartSelector';
 import CheckoutForm from './CheckoutForm';
 import CheckoutSummary from './CheckoutSummary';
+
+import validateForm from '../../utils/validateForm';
 import './checkout.scss';
 
 const initialForm = {
@@ -20,6 +22,7 @@ const initialForm = {
 const Checkout = () => {
   const items = useSelector(cartSelector.cartItems);
   const [form, setForm] = useState(initialForm);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,13 +38,20 @@ const Checkout = () => {
     );
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validateForm(form, setErrors)) return;
+  };
+
   return (
     <main className="checkout">
       <h1 className="checkout__title">Checkout</h1>
       <div className="checkout__content">
         <CheckoutForm
           form={form}
+          errors={errors}
           onChange={handleChange}
+          onSubmit={handleSubmit}
         />
         <CheckoutSummary />
       </div>
