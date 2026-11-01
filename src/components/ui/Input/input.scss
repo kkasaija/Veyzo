@@ -1,29 +1,30 @@
 @use '../../styles/abstracts' as *;
 
-.input-group {
+.input {
   display: flex;
-  flex-direction: column;
-  gap: $spacing-xs;
+  align-items: center;
+  gap: $spacing-sm;
+  width: 100%;
+  padding: 0 $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  background: $color-white;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
-  &__label {
-    font-weight: 600;
+  &:focus-within {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
   }
 
-  &__control {
-    display: flex;
-    align-items: center;
-    border: 1px solid $color-border;
-    border-radius: $border-radius;
-    padding: 0 $spacing-md;
-    transition: border-color 0.2s;
-
-    &:focus-within {
-      border-color: $color-primary;
-    }
-
-    &--error {
-      border-color: $color-danger;
-    }
+  input {
+    flex: 1;
+    padding: $spacing-md 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
   }
 
   &__icon {
@@ -31,23 +32,4 @@
     align-items: center;
     color: $color-text-light;
   }
-
-  &__helper {
-    color: $color-text-light;
-    font-size: 0.875rem;
-  }
-
-  &__error {
-    color: $color-danger;
-    font-size: 0.875rem;
-  }
-}
-
-.input {
-  width: 100%;
-  border: none;
-  outline: none;
-  padding: $spacing-md 0;
-  background: transparent;
-  font: inherit;
 }

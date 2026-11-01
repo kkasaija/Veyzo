@@ -1,4 +1,5 @@
 import { useId } from 'react';
+import FormField from '../FormField';
 import './select.scss';
 
 const Select = ({
@@ -8,6 +9,7 @@ const Select = ({
   placeholder = 'Select an option',
   error = '',
   helperText = '',
+  required = false,
   className = '',
   ...rest
 }) => {
@@ -15,22 +17,19 @@ const Select = ({
   const selectId = id || `select-${generatedId}`;
 
   return (
-    <div className="select-group">
-      {label && (
-        <label
-          htmlFor={selectId}
-          className="select-group__label"
-        >
-          {label}
-        </label>
-      )}
-
+    <FormField
+      id={selectId}
+      label={label}
+      error={error}
+      helperText={helperText}
+      required={required}
+    >
       <select
         id={selectId}
         className={`select ${error ? 'select--error' : ''} ${className}`}
         {...rest}
       >
-        <option value="">{placeholder}</option>
+        {placeholder && <option value="">{placeholder}</option>}
         {options.map(({ value, label }) => (
           <option
             key={value}
@@ -40,10 +39,7 @@ const Select = ({
           </option>
         ))}
       </select>
-
-      {!error && helperText && <small className="select-group__helper">{helperText}</small>}
-      {error && <small className="select-group__error">{error}</small>}
-    </div>
+    </FormField>
   );
 };
 

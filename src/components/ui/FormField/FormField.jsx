@@ -1,8 +1,17 @@
 import './form_field.scss';
 
-const FormField = ({ id, label, error = '', helperText = '', required = false, children }) => {
+const FormField = ({
+  id,
+  label,
+  error = '',
+  helperText = '',
+  required = false,
+  className = '',
+  children,
+}) => {
+  const classes = ['form-field', error && 'form-field--error', className].filter(Boolean).join(' ');
   return (
-    <div className="form-field">
+    <div className={classes}>
       {label && (
         <label
           htmlFor={id}

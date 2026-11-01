@@ -1,4 +1,5 @@
 import { useId } from 'react';
+import FormField from '../FormField';
 
 import './text_area.scss';
 
@@ -7,35 +8,30 @@ const TextArea = ({
   label,
   error = '',
   helperText = '',
-  className = '',
+  required = false,
   rows = 5,
   resize = 'vertical',
+  className = '',
   ...rest
 }) => {
   const generatedId = useId();
   const textAreaId = id || `textarea-${generatedId}`;
 
   return (
-    <div className="textarea-group">
-      {label && (
-        <label
-          htmlFor={textAreaId}
-          className="textarea-group__label"
-        >
-          {label}
-        </label>
-      )}
-
+    <FormField
+      id={textAreaId}
+      label={label}
+      error={error}
+      helperText={helperText}
+      required={required}
+    >
       <textarea
         id={textAreaId}
         rows={rows}
         className={`textarea textarea--${resize} ${error ? 'textarea--error' : ''} ${className}`}
         {...rest}
       />
-
-      {!error && helperText && <small className="textarea-group__helper">{helperText}</small>}
-      {error && <small className="textarea-group__error">{error}</small>}
-    </div>
+    </FormField>
   );
 };
 
